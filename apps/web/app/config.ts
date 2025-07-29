@@ -1,0 +1,2 @@
+export const  BACKEND_URL = "http://localhost:3003";
+export const  WEBSOCKET_URL = "ws://localhost:8080/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ZjIxYzJiOS1kYzhkLTQ1ZGItOTY5Yy1jOTIyMTEzMmZiNWUiLCJpYXQiOjE3NTI5NDI3MjQsImV4cCI6MTc1Mjk3ODcyNH0.wByAY5Wlu7ZsoYFSwHGA9L9tX5mwSy9oOGVaDyNAAvo";

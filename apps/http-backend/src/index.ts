@@ -99,7 +99,7 @@ app.post("/signin", async (req, res) => {
         }
     } catch (e) {
         res.status(500).json({
-            message: e
+            message: e + "some error"
         })
     }
 
@@ -137,4 +137,37 @@ app.post("/room", middleware, async (req, res) => {
 
 });
 
+app.get("/chats/:roomId" ,async (req,res) =>{
+    console.log("roomid ran");
+    const roomId = Number(req.params.roomId);
+    const messages = await prismaClient.chat.findMany({
+        where : {
+            roomId : roomId
+        },
+        orderBy : {
+            id : "asc"
+        },
+        take :50 
+    });
+    console.log(messages);
+    console.log("send messages");
+    res.json({
+        messages
+    })
+});
+
+app.get("/room/:slug" , async (req,res) =>{
+    console.log("slug ran");
+    const slug = req.params.slug;
+    const room = await prismaClient.room.findFirst({
+        where : {
+            slug
+        }
+    });
+    const roomid = room?.id
+
+    res.json({
+        roomid
+    })
+})
 app.listen(3003);  
